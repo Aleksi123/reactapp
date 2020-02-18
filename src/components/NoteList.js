@@ -3,11 +3,12 @@ import Note from './Note';
 
 export default class NoteList extends Component {
   render() {
-    console.log(this.props.notes);
+    const listItems = this.props.notes.map((note) =>
+      <Note note={note} key={note.id} value={note} />
+    );
     return (
       <div>
-        <h1>NoteList</h1>
-        <Note />
+        {listItems}
       </div>
     )
   }

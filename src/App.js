@@ -9,17 +9,27 @@ export default class App extends Component {
 
     this.state = {
       notes: [
-        /* {
+        {
           id: 1,
           title: 'note1title',
           content: 'note1content'
-        } */
+        },
+        {
+          id: 2,
+          title: 'note2title',
+          content: 'note2content'
+        }
       ]
     }
   }
 
-  createNote = () => {
+  createNote = (newelement) => {
     console.log("createNote()");
+
+    this.setState(prevState => ({
+      notes: [...prevState.notes, newelement]
+    }))
+
   }
 
   render() {
