@@ -6,7 +6,8 @@ export default class NoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      title: '',
+      content: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,12 +15,15 @@ export default class NoteForm extends Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    this.props.createNote(this.state.title, this.state.content);
+    
+    this.setState({ title: '' })
+    this.setState({ content: '' })
   }
 
   render() {
@@ -28,15 +32,15 @@ export default class NoteForm extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicTitle">
             <Form.Label>Title</Form.Label>
-            <Form.Control type="text" placeholder="Enter note title" />
+            <Form.Control type="text" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Enter note title" />
           </Form.Group>
 
           <Form.Group controlId="formBasicContent">
             <Form.Label>Content</Form.Label>
-            <Form.Control type="text" placeholder="Enter note content" value={this.state.value} onChange={this.handleChange} />
+            <Form.Control as="textarea" rows="3" type="text" name="content" value={this.state.content} onChange={this.handleChange} placeholder="Enter note content" />
           </Form.Group>
 
-          <Button onClick={this.props.createNote} variant="primary" type="submit">
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>

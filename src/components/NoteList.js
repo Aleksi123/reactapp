@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Note from './Note';
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export default class NoteList extends Component {
   render() {
@@ -7,9 +8,9 @@ export default class NoteList extends Component {
       <Note note={note} key={note.id} value={note} />
     );
     return (
-      <div>
+      <ListGroup>
         {listItems}
-      </div>
+      </ListGroup>
     )
   }
 }

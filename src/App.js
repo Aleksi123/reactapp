@@ -9,7 +9,7 @@ export default class App extends Component {
 
     this.state = {
       notes: [
-        {
+        /* {
           id: 1,
           title: 'note1title',
           content: 'note1content'
@@ -18,18 +18,22 @@ export default class App extends Component {
           id: 2,
           title: 'note2title',
           content: 'note2content'
-        }
-      ]
+        } */
+      ],
+      createID: 0
     }
   }
 
-  createNote = (newelement) => {
-    console.log("createNote()");
+  createNote = (title, content) => {
+    
+    const newNote = {
+      id: this.state.createID,
+      title: title,
+      content: content
+    }
+    this.setState({ notes: [...this.state.notes, newNote] });
 
-    this.setState(prevState => ({
-      notes: [...prevState.notes, newelement]
-    }))
-
+    this.setState({ createID : this.state.createID + 1 })
   }
 
   render() {

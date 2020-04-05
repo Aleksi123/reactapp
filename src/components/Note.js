@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export default class Note extends Component {
   render() {
     return (
-      <div>
-        <h1>{this.props.note.title}</h1>
-        <h1>{this.props.note.content}</h1>
-      </div>
+      <ListGroup.Item>
+        {this.props.note.title}<br />
+        {this.props.note.content}
+      </ListGroup.Item>
     )
   }
 }
