@@ -25,7 +25,7 @@ export default class App extends Component {
   }
 
   createNote = (title, content) => {
-    
+
     const newNote = {
       id: this.state.createID,
       title: title,
@@ -33,7 +33,11 @@ export default class App extends Component {
     }
     this.setState({ notes: [...this.state.notes, newNote] });
 
-    this.setState({ createID : this.state.createID + 1 })
+    this.setState({ createID: this.state.createID + 1 })
+  }
+
+  deleteNote = (id) => {
+    this.setState({ notes: [...this.state.notes.filter(note => note.id !== id)] })
   }
 
   render() {
@@ -41,7 +45,7 @@ export default class App extends Component {
       <div>
         <TopBar />
         <NoteForm createNote={this.createNote} />
-        <NoteList notes={this.state.notes} />
+        <NoteList notes={this.state.notes} deleteNote={this.deleteNote} />
       </div>
     )
   }
