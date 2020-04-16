@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 991db8e9b46966835e407d402293967757005901
 
 export default class Note extends Component {
   render() {

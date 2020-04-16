@@ -20,20 +20,24 @@ export default class App extends Component {
           content: 'note2content'
         } */
       ],
-      createID: 0
+      id: 0
     }
   }
 
   createNote = (title, content) => {
-    
+
     const newNote = {
-      id: this.state.createID,
+      id: this.state.id,
       title: title,
       content: content
     }
     this.setState({ notes: [...this.state.notes, newNote] });
 
-    this.setState({ createID : this.state.createID + 1 })
+    this.setState({ id: this.state.id + 1 })
+  }
+
+  deleteNote = (id) => {
+    this.setState({ notes: [...this.state.notes.filter(note => note.id !== id)] })
   }
 
   deleteNote = (id) => {
