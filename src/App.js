@@ -36,12 +36,17 @@ export default class App extends Component {
     this.setState({ createID : this.state.createID + 1 })
   }
 
+  deleteNote = (id) => {
+    console.log("deleteNote() id: " + id);
+    this.setState({ notes: [...this.state.notes.filter(note => note.id !== id)] })
+  }
+
   render() {
     return (
       <div>
         <TopBar />
         <NoteForm createNote={this.createNote} />
-        <NoteList notes={this.state.notes} />
+        <NoteList notes={this.state.notes} deleteNote={this.deleteNote} />
       </div>
     )
   }

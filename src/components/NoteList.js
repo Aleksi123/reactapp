@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 export default class NoteList extends Component {
   render() {
     const listItems = this.props.notes.map((note) =>
-      <Note note={note} key={note.id} value={note} />
+      <Note note={note} key={note.id} value={note} deleteNote={this.props.deleteNote} />
     );
     return (
       <ListGroup>
