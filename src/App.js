@@ -40,11 +40,6 @@ export default class App extends Component {
     this.setState({ notes: [...this.state.notes.filter(note => note.id !== id)] })
   }
 
-  deleteNote = (id) => {
-    console.log("deleteNote() id: " + id);
-    this.setState({ notes: [...this.state.notes.filter(note => note.id !== id)] })
-  }
-
   render() {
     return (
       <div>
